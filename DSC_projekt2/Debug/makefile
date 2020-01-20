@@ -30,13 +30,13 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: DSC_project2.elf
+all: DSC_projekt2.elf
 
 # Tool invocations
-DSC_project2.elf: $(OBJS) $(USER_OBJS) D:\226748\DSC_project2/LinkerScript.ld
+DSC_projekt2.elf: $(OBJS) $(USER_OBJS) C:\Users\Konrad\git\DSC_projekt2\DSC_projekt2/LinkerScript.ld
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU GCC Linker'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"D:/226748/DSC_project2/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "DSC_project2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"C:/Users/Konrad/git/DSC_projekt2/DSC_projekt2/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "DSC_projekt2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -48,8 +48,8 @@ clean:
 
 post-build:
 	-@echo 'Generating binary and Printing size information:'
-	arm-none-eabi-objcopy -O binary "DSC_project2.elf" "DSC_project2.bin"
-	arm-none-eabi-size "DSC_project2.elf"
+	arm-none-eabi-objcopy -O binary "DSC_projekt2.elf" "DSC_projekt2.bin"
+	arm-none-eabi-size "DSC_projekt2.elf"
 	-@echo ' '
 
 .PHONY: all clean dependents
